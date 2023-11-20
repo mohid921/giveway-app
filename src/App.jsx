@@ -1,16 +1,23 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Register from "./pages/register/page";
 
 function App() {
+
+  const router = createBrowserRouter([
+    {
+        path: '/',
+        element : <p>Home Router</p>
+    },
+    {
+        path: '/register',
+        element : <Register />
+    },
+])
+  
   return (
     <>
       <h1>It is working</h1>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<p>Home</p>} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router}></RouterProvider>
     </>
   );
 }
